@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>天氣查詢</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="block" (click)="fetchWeather()" [disabled]="loading">
+    {{ loading ? '讀取中...' : '取得天氣資料' }}
+  </ion-button>
+
+  <div *ngIf="error" style="color:red; margin-top:10px;">
+    {{ error }}
+  </div>
+
+  <pre *ngIf="weatherData" style="margin-top:10px; white-space: pre-wrap; word-wrap: break-word;">
+    {{ weatherData | json }}
+  </pre>
+</ion-content>
